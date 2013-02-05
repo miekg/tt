@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
-# Dit scriptje laat de NOS teletext zien
-# GPL versie 2
+# Dit scriptje laat de NOS teletext zien, GPL versie 2
 # (c) 2001, 2002, 2003 by Bas Zoetekouw <bas@debian.org>
 # All rights reserved.
 # (c) 2013 Miek Gieben <miek@miek.nl>
