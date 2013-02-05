@@ -14,7 +14,7 @@ use strict;
 my $color = 1;
 if ((scalar @ARGV > 0) && ($ARGV[0] eq "-m")) { $color = 0; shift; }
 
-my %graphs = (
+my %graphs = (   # TODO(mg): fill out this array
     "0" => "",
     "1" => "",
     "2" => "",
