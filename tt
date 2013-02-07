@@ -14,7 +14,6 @@ use strict;
 my $color = 1;
 if ((scalar @ARGV > 0) && ($ARGV[0] eq "-m")) { $color = 0; shift; }
 
-<<<<<<< HEAD
 my %graphs = (
     " " => "⠀",
     "!" => "⠁",
