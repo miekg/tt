@@ -77,4 +77,4 @@ sub display(@) {
 my ($pag, $sub) = @ARGV;
 $pag = "100" if (scalar @ARGV == 0);
 $sub = "0"   if (scalar @ARGV <= 1);
-display split /\n/, get "http://teletekst.e-office.com/g/android?p=${pag}-${sub}&id=" . time;
+display split /\n/, get "http://teletekst-data.nos.nl/page/${pag}-${sub}";
