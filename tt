@@ -29,7 +29,7 @@ my @graphs = (
 my %specials = (
     "" => "\e[7m ",
     "" => "\e[0m \n ",
-    "" => "⠐",
+    "" => "⣿",
 );
 
 my %gcolors = (
