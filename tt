@@ -34,6 +34,7 @@ my @graphs = (
 
 my %specials = (
     "" => "\e[30m ",   # seems to work...
+    "" => " ",
     "" => "\e[0m \n ",
     "" => "⠐",
 );
@@ -41,6 +42,7 @@ my %specials = (
 if (! $color) {
     %specials = (
         "" => " ",
+        "" => " ",
         "" => " \n ",
         "" => "⠐",
     );
