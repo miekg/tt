@@ -60,12 +60,12 @@ my %gcolors = (
 
 my %colors = (
     "" => "\e[31m",  #red        0x01
-    "" => "\e[32m",  #green      0x01
-    "" => "\e[33m",  #yellow     0x01
-    "" => "\e[34m",  #blue       0x01
-    "" => "\e[35m",  #magenta    0x01
-    "" => "\e[36m",  #cyan       0x01
-    "" => "\e[37m",  #white      0x01
+    "" => "\e[32m",  #green      0x02
+    "" => "\e[33m",  #yellow     0x03
+    "" => "\e[34m",  #blue       0x04
+    "" => "\e[35m",  #magenta    0x05
+    "" => "\e[36m",  #cyan       0x06
+    "" => "\e[37m",  #white      0x07
     "" => "\e[30m",  #background to black  0x01
 );
 
