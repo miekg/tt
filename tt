@@ -38,6 +38,15 @@ my %specials = (
     "" => "⠐",
 );
 
+if (! $color) {
+    %specials = (
+        "" => " ",
+        "" => " \n ",
+        "" => "⠐",
+    );
+}
+
+
 my %gcolors = (
     "" => "\e[31m",  #red        0x11
     "" => "\e[32m",  #green      0x12
@@ -76,7 +85,7 @@ sub display(@) {
                                                     }
         }
         $i++;
-        if ($i > 39) { print "\e[0m\n"; $i = 0; $set = 0; }
+        if ($i > 39) { print "\e[0m" if $color; print "\n"; $i = 0; $set = 0; }
     }
 }
 
