@@ -88,6 +88,7 @@ sub display(@) {
         $i++;
         if ($i > 39) { print $specials{""}; $i = 0; $set = 0; }
     }
+    print "\n";
 }
 
 my ($pag, $sub) = @ARGV;
