@@ -33,7 +33,8 @@ my @graphs = (
 );
 
 my %specials = (
-    "" => "\e[30m ",
+    "" => "\e[30m ",   # seems to work...
+    "" => " ",
     "" => "\e[0m \n ",
     "" => "⠐",
 );
@@ -41,32 +42,32 @@ my %specials = (
 if (! $color) {
     %specials = (
         "" => " ",
+        "" => " ",
         "" => " \n ",
         "" => "⠐",
     );
 }
 
-
 my %gcolors = (
-    "" => "\e[31m ",  #red        0x11
-    "" => "\e[32m ",  #green      0x12
-    "" => "\e[33m ",  #yellow     0x13
-    "" => "\e[34m ",  #blue       0x14
-    "" => "\e[35m ",  #blue       0x15
-    "" => "\e[36m ",  #blue       0x16
-    "" => "\e[37m ",  #white      0x17
-    "" => " "      ,  #contiguous display  0x18
+    "" => "\e[31m",  #red        0x11
+    "" => "\e[32m",  #green      0x12
+    "" => "\e[33m",  #yellow     0x13
+    "" => "\e[34m",  #blue       0x14
+    "" => "\e[35m",  #blue       0x15
+    "" => "\e[36m",  #blue       0x16
+    "" => "\e[37m",  #white      0x17
+    "" => ""      ,  #contiguous display  0x18
 );
 
 my %colors = (
-    "" => "\e[31m ",  #red        0x01
-    "" => "\e[32m ",  #green      0x02
-    "" => "\e[33m ",  #yellow     0x03
-    "" => "\e[34m ",  #blue       0x04
-    "" => "\e[35m ",  #magenta    0x05
-    "" => "\e[36m ",  #cyan       0x06
-    "" => "\e[37m ",  #white      0x07
-    "" => "\e[30m ",  #background to black  0x01
+    "" => "\e[31m",  #red        0x01
+    "" => "\e[32m",  #green      0x02
+    "" => "\e[33m",  #yellow     0x03
+    "" => "\e[34m",  #blue       0x04
+    "" => "\e[35m",  #magenta    0x05
+    "" => "\e[36m",  #cyan       0x06
+    "" => "\e[37m",  #white      0x07
+    "" => "\e[30m",  #background to black  0x08
 );
 
 sub display(@) {
@@ -76,9 +77,9 @@ sub display(@) {
     my $set = 0;    # 0: normal set, 1: graphics set
     foreach (split //, $line) {
         switch ($_) {
-        case { exists $gcolors{$_} }                { print $gcolors{$_} if $color; $set = 1; }
+        case { exists $gcolors{$_} }                { print $gcolors{$_} if $color; print " "; $set = 1; }
         case { $set == 0 && exists $specials{$_} }  { print $specials{$_}; }
-        case { exists $colors{$_} }                 { print $colors{$_} if $color; $set = 0; }
+        case { exists $colors{$_} }                 { print $colors{$_} if $color; print " "; $set = 0; }
         else                                        {
                                                         if ($set == 0) { utf8::encode $_; print ; }
                                                         if ($set == 1) { print $graphs[(ord $_) - 32]; }
@@ -93,4 +94,4 @@ sub display(@) {
 my ($pag, $sub) = @ARGV;
 $pag = "100" if (scalar @ARGV == 0);
 $sub = "0"   if (scalar @ARGV <= 1);
-display split /\n/, get "http://teletekst.e-office.com/g/android?p=${pag}-${sub}&id=" . time;
+display split /\n/, get "http://teletekst-data.nos.nl/page/${pag}-${sub}";
